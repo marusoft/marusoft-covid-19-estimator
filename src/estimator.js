@@ -1,25 +1,24 @@
 const covid19ImpactEstimator = (data) => {
   const { periodType, timeToElapse, reportedCases } = data;
-  const currentlyInfectedNonExpert = reportedCases * 10;
-  // HMS/MITGH report cases
-  const currentlyInfectedByExpert = reportedCases * 50;
-  let estimateMultiplier;
+  const currentlyInfected1 = reportedCases * 10;
+  const currentlyInfected2 = reportedCases * 50;
+  let multiplier;
   if (periodType === 'weeks') {
-    estimateMultiplier = timeToElapse * 7;
+    multiplier = timeToElapse * 7;
   } else if (periodType === 'months') {
-    estimateMultiplier = timeToElapse * 30;
+    multiplier = timeToElapse * 30;
   } else {
-    estimateMultiplier = timeToElapse;
+    multiplier = timeToElapse;
   }
   return {
     data,
     impact: {
-      currentlyInfected: currentlyInfectedNonExpert,
-      infectionsByRequestedTime: currentlyInfectedNonExpert * 2 ** (estimateMultiplier / 3)
+      currentlyInfected: currentlyInfected1,
+      infectionsByRequestedTime: currentlyInfected1 * 2 ** (multiplier / 3)
     },
     severeImpact: {
-      currentlyInfected: currentlyInfectedByExpert,
-      infectionsByRequestedTime: currentlyInfectedByExpert * 2 ** (estimateMultiplier / 3)
+      currentlyInfected: currentlyInfected2,
+      infectionsByRequestedTime: currentlyInfected2 * 2 ** (multiplier / 3)
     }
   };
 };
