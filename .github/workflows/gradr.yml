@@ -264,3 +264,4 @@ jobs:
         lang: javascript
       if: always()
   
+      JavaScript => covid-19-estimator-js/.github/workflows/gradr.yml
