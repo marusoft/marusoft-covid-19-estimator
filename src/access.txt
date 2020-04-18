@@ -8,3 +8,13 @@ GET /api/v1/on-covid-19/logs 200 13ms
 
 GET /api/v1/on-covid-19/logs 200 02ms
 
+POST /api/v1/on-covid-19 200 302ms
+
+POST /api/v1/on-covid-19/json 200 03ms
+
+POST /api/v1/on-covid-19/xml 200 70ms
+
+GET /api/v1/on-covid-19/logs 200 04ms
+
+GET /api/v1/on-covid-19/logs 200 01ms
+
