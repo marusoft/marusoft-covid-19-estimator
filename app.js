@@ -8,7 +8,7 @@ import helmet from 'helmet';
 import jsonToXml from 'jsontoxml';
 import logger from 'morgan';
 import fs from 'fs';
-import estimatorData from './estimator';
+import estimatorData from './src/estimator';
 
 
 const app = express();
@@ -61,7 +61,7 @@ app.post('/api/v1/on-covid-19/xml', async (req, res) => {
 });
 
 app.get('/api/v1/on-covid-19/logs', (req, res) => {
-  fs.readFile('./src/access.txt', (err, data) => {
+  fs.readFile('access.txt', (err, data) => {
     if (err) throw err;
     res.header('Content-Type', 'text/plain');
     res.send(data);
